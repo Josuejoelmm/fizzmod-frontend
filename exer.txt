@@ -1,0 +1,9 @@
+1 hacer una etiqueta <a> en html
+2 arreglarla con js
+3 asignarle un evento de click
+4 el callback del click tiene que poder crear un elemento <p> y 2 <button>
+todo adentro de un <div> (Se crean con js)
+5 el <p> tiene que decir "Esta seguro que quiere abandonar la pagina" y los botones
+"aceptar" y "cancelar"
+6 si se hace click en aceptar se tuebne que redirigir al usuario al href del abandonar
+7 si se hacer click en cancelar debe borrar el mensaje
