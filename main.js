@@ -15,10 +15,9 @@ document.addEventListener('click', e => {
     if (brk && e.target.id == 'link') {
         alert('selecciona una opcion del mensaje');
     }
-    console.log(e.target);
+
     if(e.target.id == 'link' && !brk) {
         brk = true;
-        console.log('presionaste el link');
         e.preventDefault();
         document.body.insertAdjacentHTML('afterbegin', msj);
     }
