@@ -1,39 +1,36 @@
-/**
- * La mayoria de las manipulaciones del DOM activan un relayout :
- * 
- *  - rendering: Es lo que tarda el interprete 
- * 
- */
-var msj = `
+let link = document.getElementById('link');
+let msj = `
     <div id="container">
         <p>Esta seguro que quiere abandonar la pagina?</p>
         <div>
-            <a href="#" id="aceptar">Aceptar</a>
-            <a href="#" id="cancelar">Cancelar</a>
+            <button id="aceptar">Aceptar</button>
+            <button id="cancelar">Cancelar</button>
         </div>
     </div>
     `;
-var link = document.getElementsByTagName('a')[0];
-link.addEventListener('click', e => {
-    e.preventDefault();
-    console.log('asdf');
-    var msj = `
-    <div id="container">
-        <p>Esta seguro que quiere abandonar la pagina?</p>
-        <div>
-            <a href="#" id="aceptar">Aceptar</a>
-            <a href="#" id="cancelar">Cancelar</a>
-        </div>
-    </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', msj);
+let brk = false;
 
-    if(e.target.id == aceptar) {
-        console.log('aceptaste');
+document.addEventListener('click', e => {
+    e.preventDefault();
+    if (brk && e.target.id == 'link') {
+        alert('selecciona una opcion del mensaje');
+    }
+    console.log(e.target);
+    if(e.target.id == 'link' && !brk) {
+        brk = true;
+        console.log('presionaste el link');
+        e.preventDefault();
+        document.body.insertAdjacentHTML('afterbegin', msj);
     }
 
-    if(e.target.id == cancelar) {
-        console.log('cancelaste');
+    if(e.target.id == 'aceptar') {
+        brk = false;
+        document.location.href = link.href;
+    }
+    
+    if(e.target.id == 'cancelar') {
+        brk = false;
+        document.getElementById('container').remove()
     }
 
 });
